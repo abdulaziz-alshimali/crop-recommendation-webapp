@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Crop recommendation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #05386b;
+        }
+
+        hr {
+            margin-bottom: 4%;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-weight: 400;
+            color: #05386b;
+        }
+
+        p {
+            margin: 0 0 5px;
+            font-size: 25px;
+        }
+
+        .main-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffff;
+        }
+
+        form {
+            padding: 25px;
+            margin-left: 20%;
+            margin-right: 20%;
+            box-shadow: 0 2px 5px #fff;
+            background: #fff;
+        }
+
+
+        input,
+        textarea {
+            width: calc(100% - 18px);
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #05386b;
+            outline: none;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        input::placeholder {
+            color: #05386b;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #05386b;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        button:hover {
+            background: #2371a0;
+        }
+
+        @media (min-width: 568px) {
+            .main-block {
+                flex-direction: row;
+            }
+
+        }
+
+        h6 {
+            margin-top: 5%;
+            margin-bottom: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-block">
+
+        <form name="form" , method="POST">
+            <h1>Crop recommendation </h1>
+            <h6>This model recommends the most suitable overall to plant given the conditions of the weather and soil.
+            </h6>
+            <hr>
+            <div class="info">
+                <input type="number" step="any" name="Nitrogen" , placeholder="Enter Nitrogen ratio" required />
+                <input type="number" step="any" name="Phosphorous" , placeholder="Enter Phosphorous ratio" required />
+                <input type="number" step="any" name="Potassium" , placeholder="Enter Potassium ratio" required />
+                <input type="number" step="any" name="temperature" , placeholder="Enter temperature in celsius"
+                    required />
+                <input type="number" step="any" name="humidity" , placeholder="Enter humidity in precentage" required />
+                <input type="number" step="any" name="Ph" , placeholder="Enter the Ph value" required />
+                <input type="number" step="any" name="rainfall" , placeholder="Enter rainfall in mm" required />
+            </div>
+            <button value="Submit">Predict crop</button>
+            <hr>
+            <p style="text-align: center;">{{ output }}</p>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
